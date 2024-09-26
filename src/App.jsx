@@ -1,8 +1,9 @@
 import "./App.scss";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Form_Registrazione from "./Components/Form_Registrazione";
 import Form_Login from "./Components/Form_Login";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Clienti from "./Components/Clienti";
+import Indirizzi from "./Components/Indirizzi";  
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Form_Login />} />
         <Route path="/registrazione" element={<Form_Registrazione />} />
-        <Route path="/clienti" element={<Clienti/>} />
+        <Route path="/clienti" element={<Clienti />} />
+        <Route path="/indirizzi" element={<Indirizzi />} />  
       </Routes>
     </BrowserRouter>
   );
