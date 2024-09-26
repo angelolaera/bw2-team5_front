@@ -1,17 +1,22 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
+import {  useNavigate } from "react-router-dom";
 
 const Form_Login = () => {
   const [formLogin, setFormLogin] = useState({
     email: "",
     password: "",
   });
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("FormLogin: ", formLogin);
-    
+    if (formLogin.password === "1234") {
+      setTimeout(() => {
+        navigate("/clienti");
+      }, 1000);
+    }
   };
 
   const handleChange = (e) => {
