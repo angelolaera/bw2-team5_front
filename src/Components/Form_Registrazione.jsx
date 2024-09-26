@@ -2,26 +2,34 @@ import { useState } from "react";
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { PostAuthService } from "../service/Clienti.service";
 
-const Form_Registrazione = () =>  {
+const Form_Registrazione = () => {
   const [formRegister, setFormRegister] = useState({
-    username: '',
-    nome: '',
-    cognome: '',
-    email: '',
-    password: '',
-    piva: '',
-    dataInserimento: '',
-    dataUltimoContatto: '',
-    fatturatoAnnuale: '',
-    pec: '',
-    telefono: '',
-    emailContatto: '',
-    telefonoContatto: '',
-    logoAziendale: '',
-    tipoClienti: ''
+    username: "",
+    nome: "",
+    cognome: "",
+    email: "",
+    password: "",
+    partitaIva: "",
+    dataInserimento: "",
+    dataUltimoContatto: "",
+    pec: "",
+    telefono: "",
+    emailDiContatto: "",
+    fatturatoAnnuale:"10",
+    telefonoDiContatto: "",
+    logoAziendale: "",
+    tipoClienti: "",
   });
 
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = await PostAuthService("http://localhost:3001/auth/register",formRegister);
+    console.log(data&&data);
+   
+  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormRegister((prevState) => ({
@@ -30,11 +38,7 @@ const Form_Registrazione = () =>  {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Data:", formRegister);
-  };
-
+  
   return (
     <Container fluid className="my-5">
       <Form className="form_registrazione" onSubmit={handleSubmit}>
@@ -98,8 +102,8 @@ const Form_Registrazione = () =>  {
           <Form.Label>P.IVA</Form.Label>
           <Form.Control
             type="text"
-            name="piva"
-            value={formRegister.piva}
+            name="partitaIva"
+            value={formRegister.partitaIva}
             onChange={handleChange}
             required
             placeholder="Inserisci P.IVA"
@@ -128,14 +132,14 @@ const Form_Registrazione = () =>  {
           />
         </Form.Group>
         <Form.Group className="mb-3 w-50">
-          <Form.Label>Fatturato Annuale </Form.Label>
+          <Form.Label>Fatturato annuale</Form.Label>
           <Form.Control
             type="text"
-            name="fatturatoAnnuale"
+            name="dataUltimoContatto"
             value={formRegister.fatturatoAnnuale}
             onChange={handleChange}
             required
-            placeholder="Inserisci fatturato annuale"
+            placeholder="fatturato Annuale"
           />
         </Form.Group>
         <Form.Group className="mb-3 w-50">
@@ -164,8 +168,8 @@ const Form_Registrazione = () =>  {
           <Form.Label>Email di Contatto</Form.Label>
           <Form.Control
             type="email"
-            name="emailContatto"
-            value={formRegister.emailContatto}
+            name="emailDiContatto"
+            value={formRegister.emailDiContatto}
             onChange={handleChange}
             required
             placeholder="Inserisci email"
@@ -175,8 +179,8 @@ const Form_Registrazione = () =>  {
           <Form.Label>Telefono di Contatto</Form.Label>
           <Form.Control
             type="text"
-            name="telefonoContatto"
-            value={formRegister.telefonoContatto}
+            name="telefonoDiContatto"
+            value={formRegister.telefonoDiContatto}
             onChange={handleChange}
             required
             placeholder="Inserisci telefono di contatto"
@@ -210,6 +214,6 @@ const Form_Registrazione = () =>  {
       </Form>
     </Container>
   );
-}
+};
 
 export default Form_Registrazione;
