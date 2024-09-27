@@ -1,6 +1,6 @@
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { getClient } from "../service/Clienti.service";
+import { Delete, getClient } from "../service/Clienti.service";
 import { useEffect, useState } from "react";
 import { Button, Container, Navbar, Nav, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -13,15 +13,18 @@ const Clienti = () => {
     setClienti(data.content);
     console.log(data.content);
   };
-
+  
+  const handleDelete = async (clienteId) => {
+   await Delete("http://localhost:3001/clienti/"+clienteId);
+   handlePopularclienti();
+    
+  };
   useEffect(() => {
     handlePopularclienti();
   }, []);
 
   const navigate = useNavigate();
-  const handleDelete = (clienteId) => {
-    console.log("Elimina cliente con ID:", clienteId);
-  };
+  
   return (
     <>
       <Navbar bg="secondary" variant="dark" expand="lg">
