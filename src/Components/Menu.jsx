@@ -4,22 +4,6 @@ import { Button, Container, Row, Col, Navbar, Nav } from "react-bootstrap";
 const Menu = () => {
   return (
     <>
-      <Navbar bg="secondary" variant="dark" expand="lg">
-        <Container>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/menu">
-                Home
-              </Nav.Link>
-              <Nav.Link as={Link} to="/">
-                Logout
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
       <Container className="text-center">
         <h1 className="my-4">Cosa vuoi fare oggi?</h1>
         <Row className="justify-content-center">

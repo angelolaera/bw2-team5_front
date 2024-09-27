@@ -26,22 +26,6 @@ const Clienti = () => {
 
   return (
     <>
-      <Navbar bg="secondary" variant="dark" expand="lg">
-        <Container>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/menu">
-                Home
-              </Nav.Link>
-              <Nav.Link as={Link} to="/">
-                Logout
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
       <Container>
         <h2 className="mb-4 text-center my-5">Lista Clienti</h2>
         <div className="table-responsive div-table_clienti my-3">
