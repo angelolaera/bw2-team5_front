@@ -13,7 +13,9 @@ import Menu from "./Components/Menu";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Comuni from "./Components/Comuni";
-import Province from "./Components/Province";
+import Province from "./Components/Province";import ViewFatture from "./Components/ViewFatture";
+import ModificaFattura from "./Components/ModificaFatture";
+
 
 function App() {
   return (
@@ -34,7 +36,8 @@ function App() {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <Routes>
+      
+      <Routes>
           <Route path="/" element={<Form_Login />} />
           <Route path="/registrazione" element={<Form_Registrazione />} />
           <Route path="/clienti" element={<Clienti />} />
@@ -49,11 +52,13 @@ function App() {
           <Route path="/modificaCliente/:id" element={<ModificaCliente />} />
           <Route path="/indirizzi" element={<Indirizzi />} />
           <Route path="/modificaIndirizzo/:id" element={<ModificaIndirizzi />} />
-          <Route path="/viewIndirizzo/:id" element={<ViewIndirizzi />} />
+          <Route path="/modificaFatture/:id" element={<ModificaFattura/>} />
+        <Route path="/viewIndirizzo/:id" element={<ViewIndirizzi />} />
           <Route path="/viewCliente/:id" element={<ViewClienti />} />
           <Route path="/comuni" element={<Comuni />} />
           <Route path="/province" element={<Province />} />
-        </Routes>
+          <Route path="/viewFatture/:id" element={<ViewFatture/>} />
+      </Routes>
       </BrowserRouter>
     </>
   );
