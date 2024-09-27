@@ -1,8 +1,9 @@
-import { Container, Table, Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Table, Navbar, Nav, Button } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
-import { getClient } from "../service/Clienti.service";
+import { Delete, getClient } from "../service/Clienti.service";
+import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 
 const Fatture = () => {
   const [fatture, setFatture] = useState([]);
@@ -16,6 +17,12 @@ const Fatture = () => {
   useEffect(() => {
     handlePopularFatture();
   }, []);
+
+  const handleDelete = async (fattureId) => {
+    await Delete("http://localhost:3001/fatture/" + fattureId);
+    handlePopularFatture();
+  };
+ const navigate = useNavigate();
 
   console.log(fatture);
 
@@ -59,6 +66,30 @@ const Fatture = () => {
                 <td>{fatture?.numero}</td>
                 <td>{fatture?.statoFattura}</td>
                 <td>{fatture?.cliente?.id}</td>
+                <td className="d-flex gap-2">
+                  <Button
+        
+                    variant="outline-warning"
+                    size="sm"
+                    onClick={() => navigate("/modificaCliente/" + fatture.id)}
+                  >
+                    <FaEdit />
+                  </Button>
+                  <Button
+                    variant="outline-danger"
+                    size="sm"
+                    onClick={() => handleDelete(fatture.id)}
+                  >
+                    <FaTrash />
+                  </Button>
+                  <Button
+                    variant="outline-primary"
+                    size="sm"
+                    onClick={() => navigate("/viewFatture/" + fatture.id)}
+                  >
+                    <FaEye />
+                  </Button>
+                </td>
               </tr>
             ))}
           </tbody>

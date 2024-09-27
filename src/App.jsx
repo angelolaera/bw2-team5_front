@@ -12,11 +12,13 @@ import Indirizzi from "./Components/Indirizzi";
 import ModificaIndirizzi from "./Components/ModificaIndirizzi";
 import ViewIndirizzi from "./Components/ViewIndirizzi";
 import ViewClienti from "./Components/ViewClienti";
+import ViewFatture from "./Components/ViewFatture";
 
 
 function App() {
   return (
     <BrowserRouter>
+    
       <Routes>
         <Route path="/" element={<Form_Login />} />
         <Route path="/registrazione" element={<Form_Registrazione />} />
@@ -30,6 +32,7 @@ function App() {
         <Route path="/modificaIndirizzo/:id" element={<ModificaIndirizzi/>} />
         <Route path="/viewIndirizzo/:id" element={<ViewIndirizzi/>} />
         <Route path="/viewCliente/:id" element={<ViewClienti/>} />
+        <Route path="/viewFatture/:id" element={<ViewFatture/>} />
       </Routes>
     </BrowserRouter>
   );
