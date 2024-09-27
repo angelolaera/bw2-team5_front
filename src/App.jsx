@@ -7,6 +7,7 @@ import ModificaCliente from "./Components/ModificaCliente";
 import Indirizzi from "./Components/Indirizzi";
 import ModificaIndirizzi from "./Components/ModificaIndirizzi";
 import ViewIndirizzi from "./Components/ViewIndirizzi";
+import ViewClienti from "./Components/ViewClienti";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/indirizzi" element={<Indirizzi/>} />
         <Route path="/modificaIndirizzo/:id" element={<ModificaIndirizzi/>} />
         <Route path="/viewIndirizzo/:id" element={<ViewIndirizzi/>} />
+        <Route path="/viewCliente/:id" element={<ViewClienti/>} />
       </Routes>
     </BrowserRouter>
   );

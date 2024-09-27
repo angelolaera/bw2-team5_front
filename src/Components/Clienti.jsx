@@ -90,7 +90,7 @@ const Clienti = () => {
                   <Button
                     variant="outline-primary"
                     size="sm"
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate("/viewCliente/"+cliente.id)}
                   >
                     <FaEye />
                   </Button>
