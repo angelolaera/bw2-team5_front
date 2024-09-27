@@ -1,7 +1,7 @@
 import { Button, Container, Table } from "react-bootstrap";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { getClient } from "../service/Clienti.service";
+import { Delete, getClient } from "../service/Clienti.service";
 import { useEffect, useState } from "react";
 
 const Clienti = () => {
@@ -12,15 +12,18 @@ const Clienti = () => {
     setClienti(data.content);
     console.log(data.content);
   };
-
+  
+  const handleDelete = async (clienteId) => {
+   await Delete("http://localhost:3001/clienti/"+clienteId);
+   handlePopularclienti();
+    
+  };
   useEffect(() => {
     handlePopularclienti();
   }, []);
 
   const navigate = useNavigate();
-  const handleDelete = (clienteId) => {
-    console.log("Elimina cliente con ID:", clienteId);
-  };
+  
   return (
     <Container>
       <h2 className="mb-4 text-center position-absolute top-0 my-5">
