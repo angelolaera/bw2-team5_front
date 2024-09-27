@@ -43,13 +43,6 @@ const Menu = () => {
             </Link>
           </Col>
           <Col md={4} className="mb-3">
-            <Link to="/citta">
-              <Button variant="secondary" className="w-100">
-                Lista Città
-              </Button>
-            </Link>
-          </Col>
-          <Col md={4} className="mb-3">
             <Link to="/indirizzi">
               <Button variant="secondary" className="w-100">
                 Lista Indirizzi
