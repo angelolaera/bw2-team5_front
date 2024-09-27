@@ -60,7 +60,7 @@ const ModificaCliente = () => {
       };
 
       const data = await PutClient("http://localhost:3001/clienti/" + id, updatedCliente);
-      console.log("Data:", data);
+      console.log("Data:", updatedCliente);
     } catch (error) {
       console.error("Errore durante l'aggiornamento del cliente:", error);
     }

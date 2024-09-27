@@ -13,18 +13,17 @@ const Clienti = () => {
     setClienti(data.content);
     console.log(data.content);
   };
-  
+
   const handleDelete = async (clienteId) => {
-   await Delete("http://localhost:3001/clienti/"+clienteId);
-   handlePopularclienti();
-    
+    await Delete("http://localhost:3001/clienti/" + clienteId);
+    handlePopularclienti();
   };
   useEffect(() => {
     handlePopularclienti();
   }, []);
 
   const navigate = useNavigate();
-  
+
   return (
     <>
       <Navbar bg="secondary" variant="dark" expand="lg">
