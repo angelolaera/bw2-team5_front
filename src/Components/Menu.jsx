@@ -1,30 +1,64 @@
-import { Row, Col, ListGroup } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Clienti from "./Clienti";
-import Form_Registrazione from "./Form_Registrazione";
+import { Link } from "react-router-dom";
+import { Button, Container, Row, Col } from "react-bootstrap";
 
 const Menu = () => {
   return (
-    <Row className="d-flex w-100" style={{ margin: 0 }}>
-      <Col xl={3} className="bg-light vh-100">
-        <h1>EPIC ENERGIA</h1>
-        <ListGroup className="mt-5">
-          <ListGroup.Item action href="#/clienti">
-            Registrazione Cliente
-          </ListGroup.Item>
-          <ListGroup.Item action href="#/fatture">
-            Gestione Fatture
-          </ListGroup.Item>
-          <ListGroup.Item action href="#/clienti">
-            Visualizza Clienti
-          </ListGroup.Item>
-        </ListGroup>
-      </Col>
-      <Col xl={9} className="d-flex flex-column">
-        <Clienti />
-        <Form_Registrazione />
-      </Col>
-    </Row>
+    <>
+      <Container className="text-center">
+        <h1 className="my-4">Cosa vuoi fare oggi?</h1>
+        <Row className="justify-content-center">
+          <Col md={4} className="mb-3">
+            <Link to="/clienti">
+              <Button variant="secondary" className="w-100">
+                Lista Clienti
+              </Button>
+            </Link>
+          </Col>
+          <Col md={4} className="mb-3">
+            <Link to="/registrazione">
+              <Button variant="secondary" className="w-100">
+                Aggiungi Cliente
+              </Button>
+            </Link>
+          </Col>
+          <Col md={4} className="mb-3">
+            <Link to="/fatture">
+              <Button variant="secondary" className="w-100">
+                Lista Fatture
+              </Button>
+            </Link>
+          </Col>
+          <Col md={4} className="mb-3">
+            <Link to="/comuni">
+              <Button variant="secondary" className="w-100">
+                Lista Comuni
+              </Button>
+            </Link>
+          </Col>
+          <Col md={4} className="mb-3">
+            <Link to="/province">
+              <Button variant="secondary" className="w-100">
+                Lista Province
+              </Button>
+            </Link>
+          </Col>
+          <Col md={4} className="mb-3">
+            <Link to="/citta">
+              <Button variant="secondary" className="w-100">
+                Lista Città
+              </Button>
+            </Link>
+          </Col>
+          <Col md={4} className="mb-3">
+            <Link to="/indirizzi">
+              <Button variant="secondary" className="w-100">
+                Lista Indirizzi
+              </Button>
+            </Link>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 };
 
