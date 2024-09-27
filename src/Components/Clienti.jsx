@@ -16,6 +16,8 @@ const Clienti = () => {
   const handleDelete = async (clienteId) => {
     await Delete("http://localhost:3001/clienti/" + clienteId);
     handlePopularclienti();
+    await Delete("http://localhost:3001/clienti/" + clienteId);
+    handlePopularclienti();
   };
   useEffect(() => {
     handlePopularclienti();
@@ -25,9 +27,7 @@ const Clienti = () => {
 
   return (
     <Container>
-      <h2 className="mb-4 text-center position-absolute top-0 my-5">
-        Lista Clienti
-      </h2>
+      <h2 className="mb-4 text-center position-absolute top-0 my-5">Lista Clienti</h2>
       <div className="table-responsive div-table_clienti position-absolute   start-0 my-3">
         <Table striped bordered hover className="table_clienti mb-5 pb-5">
           <thead>
@@ -71,25 +71,13 @@ const Clienti = () => {
                 <td>{cliente.sedeLegale?.id}</td>
                 <td>{cliente.sedeOperativa?.id}</td>
                 <td className="d-flex gap-2">
-                  <Button
-                    variant="outline-warning"
-                    size="sm"
-                    onClick={() => navigate("/modificaCliente/" + cliente.id)}
-                  >
+                  <Button variant="outline-warning" size="sm" onClick={() => navigate("/modificaCliente/" + cliente.id)}>
                     <FaEdit />
                   </Button>
-                  <Button
-                    variant="outline-danger"
-                    size="sm"
-                    onClick={() => handleDelete(cliente.id)}
-                  >
+                  <Button variant="outline-danger" size="sm" onClick={() => handleDelete(cliente.id)}>
                     <FaTrash />
                   </Button>
-                  <Button
-                    variant="outline-primary"
-                    size="sm"
-                    onClick={() => navigate("/viewCliente/" + cliente.id)}
-                  >
+                  <Button variant="outline-primary" size="sm" onClick={() => navigate("/viewCliente/" + cliente.id)}>
                     <FaEye />
                   </Button>
                 </td>

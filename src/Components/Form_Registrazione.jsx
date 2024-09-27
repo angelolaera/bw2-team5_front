@@ -39,22 +39,6 @@ const Form_Registrazione = () => {
 
   return (
     <>
-      <Navbar bg="secondary" variant="dark" expand="lg">
-        <Container>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/menu">
-                Home
-              </Nav.Link>
-              <Nav.Link as={Link} to="/">
-                Logout
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
       <Container fluid className="my-5">
         <Form className="form_registrazione" onSubmit={handleSubmit}>
           <h2 className="p-3 mb-2">REGISTRAZIONE</h2>
