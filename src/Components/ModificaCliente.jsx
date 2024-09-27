@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { getClient, PostAuthService } from "../service/Clienti.service";
+import {
+  getClient,
+  PostAuthService,
+  PutClient,
+} from "../service/Clienti.service";
 
 const ModificaCliente = () => {
   const { id } = useParams();
@@ -43,15 +47,28 @@ const ModificaCliente = () => {
       [name]: value,
     }));
   };
+  const handleChangeId = (e) => {
+    setClienti((prevCliente) => ({
+      ...prevCliente,
+      sedeLegale: { id: cliente.sedeLegale.id },
+      sedeOperativa: { id: cliente.sedeOperativa.id },
+    }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const data = await PostAuthService(
-        "http://localhost:3001/clienti/me",
-        cliente
+      const updatedCliente = {
+        ...cliente,
+        sedeLegale: cliente.sedeLegale.id,
+        sedeOperativa: cliente.sedeOperativa.id,
+      };
+
+      const data = await PutClient(
+        "http://localhost:3001/clienti/" + id,
+        updatedCliente
       );
-      console.log("Dati del cliente aggiornati:", data);
+      console.log("Dati del cliente aggiornare:", data);
     } catch (error) {
       console.error("Errore durante l'aggiornamento del cliente:", error);
     }
@@ -68,7 +85,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="text"
             name="nome"
-            value={cliente.nome || ""}
+            value={cliente?.nome || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -79,7 +96,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="text"
             name="cognome"
-            value={cliente.cognome || ""}
+            value={cliente?.cognome || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -90,7 +107,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="email"
             name="email"
-            value={cliente.email || ""}
+            value={cliente?.email || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -101,7 +118,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="text"
             name="telefono"
-            value={cliente.telefono || ""}
+            value={cliente?.telefono || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -112,7 +129,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="text"
             name="username"
-            value={cliente.username || ""}
+            value={cliente?.username || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -123,7 +140,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="text"
             name="partitaIva"
-            value={cliente.partitaIva || ""}
+            value={cliente?.partitaIva || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -134,7 +151,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="date"
             name="dataInserimento"
-            value={cliente.dataInserimento || ""}
+            value={cliente?.dataInserimento || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -145,7 +162,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="date"
             name="dataUltimoContatto"
-            value={cliente.dataUltimoContatto || ""}
+            value={cliente?.dataUltimoContatto || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -156,7 +173,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="text"
             name="fatturatoAnnuale"
-            value={cliente.fatturatoAnnuale || ""}
+            value={cliente?.fatturatoAnnuale || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -167,7 +184,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="text"
             name="pec"
-            value={cliente.pec || ""}
+            value={cliente?.pec || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -178,7 +195,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="email"
             name="emailDiContatto"
-            value={cliente.emailDiContatto || ""}
+            value={cliente?.emailDiContatto || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -189,7 +206,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="text"
             name="telefonoDiContatto"
-            value={cliente.telefonoDiContatto || ""}
+            value={cliente?.telefonoDiContatto || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -200,7 +217,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="text"
             name="logoAziendale"
-            value={cliente.logoAziendale || ""}
+            value={cliente?.logoAziendale || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -211,7 +228,7 @@ const ModificaCliente = () => {
           <Form.Control
             type="text"
             name="tipoClienti"
-            value={cliente.tipoClienti || ""}
+            value={cliente?.tipoClienti || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -221,9 +238,9 @@ const ModificaCliente = () => {
           <Form.Label>Sede Legale ID</Form.Label>
           <Form.Control
             type="text"
-            name="sedeLegaleId"
-            value={cliente.sedeLegale?.id || ""}
-            onChange={handleChange}
+            name="sedeLegale"
+            value={cliente?.sedeLegale?.id || ""}
+            onChange={handleChangeId}
           />
         </Form.Group>
 
@@ -232,20 +249,9 @@ const ModificaCliente = () => {
           <Form.Label>Sede Operativa ID</Form.Label>
           <Form.Control
             type="text"
-            name="sedeOperativaId"
-            value={cliente.sedeOperativa?.id || ""}
-            onChange={handleChange}
-          />
-        </Form.Group>
-
-        {/* Password */}
-        <Form.Group className="mb-3">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            name="password"
-            value={cliente.password || ""}
-            onChange={handleChange}
+            name="sedeOperativa"
+            value={cliente?.sedeOperativa?.id || ""}
+            onChange={handleChangeId}
           />
         </Form.Group>
 
