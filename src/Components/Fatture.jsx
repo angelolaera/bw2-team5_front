@@ -71,7 +71,7 @@ const Fatture = () => {
         
                     variant="outline-warning"
                     size="sm"
-                    onClick={() => navigate("/modificaCliente/" + fatture.id)}
+                    onClick={() => navigate("/modificaFatture/" + fatture.id)}
                   >
                     <FaEdit />
                   </Button>

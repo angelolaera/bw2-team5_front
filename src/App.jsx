@@ -13,6 +13,7 @@ import ModificaIndirizzi from "./Components/ModificaIndirizzi";
 import ViewIndirizzi from "./Components/ViewIndirizzi";
 import ViewClienti from "./Components/ViewClienti";
 import ViewFatture from "./Components/ViewFatture";
+import ModificaFattura from "./Components/ModificaFatture";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/modificaCliente/:id" element={<ModificaCliente/>} />
         <Route path="/indirizzi" element={<Indirizzi/>} />
         <Route path="/modificaIndirizzo/:id" element={<ModificaIndirizzi/>} />
+        <Route path="/modificaFatture/:id" element={<ModificaFattura/>} />
         <Route path="/viewIndirizzo/:id" element={<ViewIndirizzi/>} />
         <Route path="/viewCliente/:id" element={<ViewClienti/>} />
         <Route path="/viewFatture/:id" element={<ViewFatture/>} />
