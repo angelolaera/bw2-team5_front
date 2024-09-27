@@ -14,6 +14,13 @@ const Menu = () => {
           </Link>
         </Col>
         <Col md={4} className="mb-3">
+          <Link to="/registrazione">
+            <Button variant="primary" className="w-100">
+              Aggiungi Cliente
+            </Button>
+          </Link>
+        </Col>
+        <Col md={4} className="mb-3">
           <Link to="/fatture">
             <Button variant="primary" className="w-100">
               Lista Fatture
