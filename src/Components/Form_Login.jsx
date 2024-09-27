@@ -11,7 +11,6 @@ const Form_Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("FormLogin: ", formLogin);
-    
   };
 
   const handleChange = (e) => {
@@ -27,26 +26,12 @@ const Form_Login = () => {
       <h2 className="text-center pt-5 mb-4">Login</h2>
       <Form.Group className="w-50" controlId="formEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control
-          type="email"
-          placeholder="Enter email"
-          name="email"
-          value={formLogin.email}
-          onChange={handleChange}
-          required
-        />
+        <Form.Control type="email" placeholder="Enter email" name="email" value={formLogin.email} onChange={handleChange} required />
       </Form.Group>
 
       <Form.Group controlId="formPassword" className="mt-3 w-50">
         <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={formLogin.password}
-          onChange={handleChange}
-          required
-        />
+        <Form.Control type="password" placeholder="Password" name="password" value={formLogin.password} onChange={handleChange} required />
       </Form.Group>
 
       <Button variant="primary" type="submit" className="mt-4">

@@ -1,15 +1,15 @@
-import { Container, Table } from "react-bootstrap";
+import { Col, Container, Table } from "react-bootstrap";
 
 const Clienti = () => {
-    const clients = [
-    { id: 1, nome: 'Mario', cognome: 'Rossi', email: 'mario.rossi@example.com', telefono: '1234567890' },
-    { id: 2, nome: 'Luigi', cognome: 'Verdi', email: 'luigi.verdi@example.com', telefono: '0987654321' },
-    { id: 3, nome: 'Giulia', cognome: 'Bianchi', email: 'giulia.bianchi@example.com', telefono: '1122334455' },
-   
+  const clients = [
+    { id: 1, nome: "Mario", cognome: "Rossi", email: "mario.rossi@example.com", telefono: "1234567890" },
+    { id: 2, nome: "Luigi", cognome: "Verdi", email: "luigi.verdi@example.com", telefono: "0987654321" },
+    { id: 3, nome: "Giulia", cognome: "Bianchi", email: "giulia.bianchi@example.com", telefono: "1122334455" },
   ];
 
   return (
-    <Container fluid className="my-5">
+    <Col className="d-flex flex-column">
+      {" "}
       <h2 className="mb-4 text-center ">Lista Clienti</h2>
       <Table striped bordered hover className="table_clienti">
         <thead>
@@ -33,8 +33,7 @@ const Clienti = () => {
           ))}
         </tbody>
       </Table>
-    </Container>
+    </Col>
   );
-
-}
+};
 export default Clienti;

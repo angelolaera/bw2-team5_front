@@ -3,23 +3,23 @@ import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const Form_Registrazione = () =>  {
+const Form_Registrazione = () => {
   const [formRegister, setFormRegister] = useState({
-    username: '',
-    nome: '',
-    cognome: '',
-    email: '',
-    password: '',
-    piva: '',
-    dataInserimento: '',
-    dataUltimoContatto: '',
-    fatturatoAnnuale: '',
-    pec: '',
-    telefono: '',
-    emailContatto: '',
-    telefonoContatto: '',
-    logoAziendale: '',
-    tipoClienti: ''
+    username: "",
+    nome: "",
+    cognome: "",
+    email: "",
+    password: "",
+    piva: "",
+    dataInserimento: "",
+    dataUltimoContatto: "",
+    fatturatoAnnuale: "",
+    pec: "",
+    telefono: "",
+    emailContatto: "",
+    telefonoContatto: "",
+    logoAziendale: "",
+    tipoClienti: "",
   });
 
   const handleChange = (e) => {
@@ -41,80 +41,31 @@ const Form_Registrazione = () =>  {
         <h2 className="p-3 mb-2">REGISTRAZIONE</h2>
         <Form.Group className="mb-3 w-50">
           <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="text"
-            name="username"
-            value={formRegister.username}
-            onChange={handleChange}
-            required
-            placeholder="Inserisci Username"
-          />
+          <Form.Control type="text" name="username" value={formRegister.username} onChange={handleChange} required placeholder="Inserisci Username" />
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Form.Label>Nome</Form.Label>
-          <Form.Control
-            type="text"
-            name="nome"
-            value={formRegister.nome}
-            onChange={handleChange}
-            required
-            placeholder="Inserisci Nome"
-          />
+          <Form.Control type="text" name="nome" value={formRegister.nome} onChange={handleChange} required placeholder="Inserisci Nome" />
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Form.Label>Cognome</Form.Label>
-          <Form.Control
-            type="text"
-            name="cognome"
-            value={formRegister.cognome}
-            onChange={handleChange}
-            required
-            placeholder="Inserisci Cognome"
-          />
+          <Form.Control type="text" name="cognome" value={formRegister.cognome} onChange={handleChange} required placeholder="Inserisci Cognome" />
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            name="email"
-            value={formRegister.email}
-            onChange={handleChange}
-            required
-            placeholder="Inserisci email"
-          />
+          <Form.Control type="email" name="email" value={formRegister.email} onChange={handleChange} required placeholder="Inserisci email" />
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            name="password"
-            value={formRegister.password}
-            onChange={handleChange}
-            required
-            placeholder="Inserisci Password"
-          />
+          <Form.Control type="password" name="password" value={formRegister.password} onChange={handleChange} required placeholder="Inserisci Password" />
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Form.Label>P.IVA</Form.Label>
-          <Form.Control
-            type="text"
-            name="piva"
-            value={formRegister.piva}
-            onChange={handleChange}
-            required
-            placeholder="Inserisci P.IVA"
-          />
+          <Form.Control type="text" name="piva" value={formRegister.piva} onChange={handleChange} required placeholder="Inserisci P.IVA" />
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Form.Label>Data Inserimento</Form.Label>
-          <Form.Control
-            type="text"
-            name="dataInserimento"
-            value={formRegister.dataInserimento}
-            onChange={handleChange}
-            required
-            placeholder="YYYY-MM-DD"
-          />
+          <Form.Control type="text" name="dataInserimento" value={formRegister.dataInserimento} onChange={handleChange} required placeholder="YYYY-MM-DD" />
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Form.Label>Data Ultimo Contatto</Form.Label>
@@ -140,36 +91,15 @@ const Form_Registrazione = () =>  {
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Form.Label>P.E.C.</Form.Label>
-          <Form.Control
-            type="text"
-            name="pec"
-            value={formRegister.pec}
-            onChange={handleChange}
-            required
-            placeholder="Inserisci pec"
-          />
+          <Form.Control type="text" name="pec" value={formRegister.pec} onChange={handleChange} required placeholder="Inserisci pec" />
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Form.Label>Telefono</Form.Label>
-          <Form.Control
-            type="text"
-            name="telefono"
-            value={formRegister.telefono}
-            onChange={handleChange}
-            required
-            placeholder="Inserisci telefono"
-          />
+          <Form.Control type="text" name="telefono" value={formRegister.telefono} onChange={handleChange} required placeholder="Inserisci telefono" />
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Form.Label>Email di Contatto</Form.Label>
-          <Form.Control
-            type="email"
-            name="emailContatto"
-            value={formRegister.emailContatto}
-            onChange={handleChange}
-            required
-            placeholder="Inserisci email"
-          />
+          <Form.Control type="email" name="emailContatto" value={formRegister.emailContatto} onChange={handleChange} required placeholder="Inserisci email" />
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Form.Label>Telefono di Contatto</Form.Label>
@@ -195,14 +125,7 @@ const Form_Registrazione = () =>  {
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Form.Label>Tipo Clienti</Form.Label>
-          <Form.Control
-            type="text"
-            name="tipoClienti"
-            value={formRegister.tipoClienti}
-            onChange={handleChange}
-            required
-            placeholder="Inserisci tipo cliente"
-          />
+          <Form.Control type="text" name="tipoClienti" value={formRegister.tipoClienti} onChange={handleChange} required placeholder="Inserisci tipo cliente" />
         </Form.Group>
         <Button variant="secondary" type="submit" className="mb-5">
           Submit
@@ -210,6 +133,6 @@ const Form_Registrazione = () =>  {
       </Form>
     </Container>
   );
-}
+};
 
 export default Form_Registrazione;
