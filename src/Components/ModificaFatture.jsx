@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Form, Button, Row, Col } from 'react-bootstrap';
-import { getClient, PutClient } from '../service/Clienti.service';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Form, Button, Row, Col } from "react-bootstrap";
+import { getClient, PutClient } from "../service/Clienti.service";
 
 const ModificaFattura = () => {
   const { id } = useParams();
@@ -14,18 +14,19 @@ const ModificaFattura = () => {
     clienteID: "",
   });
 
-  // Function to populate fattura data
   const handlePopularFatture = async () => {
     try {
-      const fattureData = await getClient(`http://localhost:3001/fatture/fatt/${id}`);
-      
-      // Only set necessary properties
+      const fattureData = await getClient(
+        `http://localhost:3001/fatture/fatt/${id}`
+      );
+
       setFatture({
+        
         dataFattura: fattureData.dataFattura,
         importo: fattureData.importo,
         numero: fattureData.numero,
         statoFattura: fattureData.statoFattura,
-        clienteID: fattureData.cliente.id,  // Mapping clienteID correctly
+        clienteID: fattureData.cliente.id,
       });
 
       console.log(fattureData);
@@ -38,7 +39,6 @@ const ModificaFattura = () => {
     handlePopularFatture();
   }, [id]);
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFatture((prevFatture) => ({
@@ -47,14 +47,10 @@ const ModificaFattura = () => {
     }));
   };
 
-  // Submit updated fattura data
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Prepare updated object
       const updatedFatture = { ...fatture };
-
-      // Call API to update the fattura
       await PutClient(`http://localhost:3001/fatture/${id}`, updatedFatture);
 
       console.log("Updated fattura data:", updatedFatture);
@@ -133,7 +129,7 @@ const ModificaFattura = () => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit" className='mt-4'>
+      <Button variant="primary" type="submit" className="mt-4">
         Salva Modifiche
       </Button>
     </Form>
