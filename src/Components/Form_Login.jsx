@@ -1,17 +1,29 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import {  PostAuthService } from "../service/Clienti.service";
 
 const Form_Login = () => {
   const [formLogin, setFormLogin] = useState({
     email: "",
     password: "",
   });
-
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("FormLogin: ", formLogin);
-    
+
+    const data = await PostAuthService(
+      "http://localhost:3001/auth/login",
+      formLogin
+    );
+    console.log("token ", data.accessToken);
+    if (formLogin.password === "1234") {
+      setTimeout(() => {
+        navigate("/clienti");
+      }, 20000);
+    }
   };
 
   const handleChange = (e) => {

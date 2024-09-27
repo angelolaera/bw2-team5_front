@@ -1,40 +1,103 @@
-import { Container, Table } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
+import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { getClient } from "../service/Clienti.service";
+import { useEffect, useState } from "react";
 
 const Clienti = () => {
-    const clients = [
-    { id: 1, nome: 'Mario', cognome: 'Rossi', email: 'mario.rossi@example.com', telefono: '1234567890' },
-    { id: 2, nome: 'Luigi', cognome: 'Verdi', email: 'luigi.verdi@example.com', telefono: '0987654321' },
-    { id: 3, nome: 'Giulia', cognome: 'Bianchi', email: 'giulia.bianchi@example.com', telefono: '1122334455' },
-   
-  ];
+  const [clienti, setClienti] = useState([]);
 
+  const handlePopularclienti = async () => {
+    const data = await getClient("http://localhost:3001/clienti");
+    setClienti(data.content);
+    console.log(data.content);
+  };
+
+  useEffect(() => {
+    handlePopularclienti();
+  }, []);
+
+  const navigate = useNavigate();
+  const handleDelete = (clienteId) => {
+    console.log("Elimina cliente con ID:", clienteId);
+  };
   return (
-    <Container fluid className="my-5">
-      <h2 className="mb-4 text-center ">Lista Clienti</h2>
-      <Table striped bordered hover className="table_clienti">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Cognome</th>
-            <th>Email</th>
-            <th>Telefono</th>
-          </tr>
-        </thead>
-        <tbody>
-          {clients.map((client) => (
-            <tr key={client.id}>
-              <td>{client.id}</td>
-              <td>{client.nome}</td>
-              <td>{client.cognome}</td>
-              <td>{client.email}</td>
-              <td>{client.telefono}</td>
+    <Container>
+      <h2 className="mb-4 text-center position-absolute top-0 my-5">
+        Lista Clienti
+      </h2>
+      <div className="table-responsive div-table_clienti position-absolute   start-0 my-3">
+        <Table striped bordered hover className="table_clienti mb-5 pb-5">
+          <thead>
+            <tr>
+              <th>ID</th>
+             
+              <th>Nome</th>
+              <th>Cognome</th>
+              <th>Email</th>
+              <th>Telefono</th>
+              <th>Partita IVA</th>
+              <th>Data Inserimento</th>
+              <th>Data Ultimo Contatto</th>
+              <th>Fatturato Annuale</th>
+              <th>PEC</th>
+              <th>Email di Contatto</th>
+              <th>Telefono di Contatto</th>
+              <th>Logo Aziendale</th>
+              <th>Tipo Clienti</th>
+              <th>Sede Legale</th>
+              <th>Sede Operativa</th>
+              <th>Azioni</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {clienti&&clienti.map((cliente) => (
+              <tr key={cliente.id}>
+                <td>{cliente.id}</td>
+                <td>{cliente.nome}</td>
+                <td>{cliente.cognome}</td>
+                <td>{cliente.email}</td>
+                <td>{cliente.telefono}</td>
+                <td>{cliente.partitaIva}</td>
+                <td>{cliente.dataInserimento}</td>
+                <td>{cliente.dataUltimoContatto}</td>
+                <td>{cliente.fatturatoAnnuale}</td>
+                <td>{cliente.pec}</td>
+                <td>{cliente.emailDiContatto}</td>
+                <td>{cliente.telefonoDiContatto}</td>
+                <td>{cliente.logoAziendale}</td>
+                <td>{cliente.tipoClienti}</td>
+                <td>{cliente.sedeLegale?.id}</td>
+                <td>{cliente.sedeOperativa?.id}</td>
+                <td className="d-flex gap-2">
+                  <Button
+                    variant="outline-warning"
+                    size="sm"
+                    onClick={() => navigate("/modificaCliente/" + cliente.id)}
+                  >
+                    <FaEdit />
+                  </Button>
+                  <Button
+                    variant="outline-danger"
+                    size="sm"
+                    onClick={() => handleDelete(cliente.id)}
+                  >
+                    <FaTrash />
+                  </Button>
+                  <Button
+                    variant="outline-primary"
+                    size="sm"
+                    onClick={() => navigate("/")}
+                  >
+                    <FaEye />
+                  </Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </Container>
   );
-
-}
+};
 export default Clienti;
