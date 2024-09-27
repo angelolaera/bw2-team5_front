@@ -12,6 +12,8 @@ import ViewClienti from "./Components/ViewClienti";
 import Menu from "./Components/Menu";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Comuni from "./Components/Comuni";
+import Province from "./Components/Province";
 
 function App() {
   return (
@@ -49,6 +51,8 @@ function App() {
           <Route path="/modificaIndirizzo/:id" element={<ModificaIndirizzi />} />
           <Route path="/viewIndirizzo/:id" element={<ViewIndirizzi />} />
           <Route path="/viewCliente/:id" element={<ViewClienti />} />
+          <Route path="/comuni" element={<Comuni />} />
+          <Route path="/province" element={<Province />} />
         </Routes>
       </BrowserRouter>
     </>
