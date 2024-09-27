@@ -3,7 +3,6 @@ import { Button, Container, Form } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import {
   getClient,
-  PostAuthService,
   PutClient,
 } from "../service/Clienti.service";
 
@@ -48,10 +47,10 @@ const ModificaCliente = () => {
     }));
   };
   const handleChangeId = (e) => {
+    const { name, value } = e.target;
     setClienti((prevCliente) => ({
       ...prevCliente,
-      sedeLegale: { id: cliente.sedeLegale.id },
-      sedeOperativa: { id: cliente.sedeOperativa.id },
+      [name]: {id: value},
     }));
   };
 
@@ -68,7 +67,7 @@ const ModificaCliente = () => {
         "http://localhost:3001/clienti/" + id,
         updatedCliente
       );
-      console.log("Dati del cliente aggiornare:", data);
+      console.log("Data:", data);
     } catch (error) {
       console.error("Errore durante l'aggiornamento del cliente:", error);
     }
@@ -78,8 +77,6 @@ const ModificaCliente = () => {
     <Container fluid className="my-5">
       <Form onSubmit={handleSubmit} className="form_modifica_cliente py-5">
         <h2 className="mb-4 text-center">Modifica Cliente</h2>
-
-        {/* Nome */}
         <Form.Group className="mb-3">
           <Form.Label>Nome</Form.Label>
           <Form.Control
@@ -89,8 +86,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* Cognome */}
         <Form.Group className="mb-3">
           <Form.Label>Cognome</Form.Label>
           <Form.Control
@@ -100,8 +95,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* Email */}
         <Form.Group className="mb-3">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -111,8 +104,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* Telefono */}
         <Form.Group className="mb-3">
           <Form.Label>Telefono</Form.Label>
           <Form.Control
@@ -122,8 +113,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* Username */}
         <Form.Group className="mb-3">
           <Form.Label>Username</Form.Label>
           <Form.Control
@@ -133,8 +122,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* Partita IVA */}
         <Form.Group className="mb-3">
           <Form.Label>Partita IVA</Form.Label>
           <Form.Control
@@ -144,8 +131,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* Data Inserimento */}
         <Form.Group className="mb-3">
           <Form.Label>Data Inserimento</Form.Label>
           <Form.Control
@@ -155,8 +140,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* Data Ultimo Contatto */}
         <Form.Group className="mb-3">
           <Form.Label>Data Ultimo Contatto</Form.Label>
           <Form.Control
@@ -166,8 +149,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* Fatturato Annuale */}
         <Form.Group className="mb-3">
           <Form.Label>Fatturato Annuale</Form.Label>
           <Form.Control
@@ -177,8 +158,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* PEC */}
         <Form.Group className="mb-3">
           <Form.Label>PEC</Form.Label>
           <Form.Control
@@ -188,8 +167,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* Email di Contatto */}
         <Form.Group className="mb-3">
           <Form.Label>Email di Contatto</Form.Label>
           <Form.Control
@@ -199,8 +176,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* Telefono di Contatto */}
         <Form.Group className="mb-3">
           <Form.Label>Telefono di Contatto</Form.Label>
           <Form.Control
@@ -210,8 +185,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* Logo Aziendale */}
         <Form.Group className="mb-3">
           <Form.Label>Logo Aziendale</Form.Label>
           <Form.Control
@@ -221,8 +194,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* Tipo Clienti */}
         <Form.Group className="mb-3">
           <Form.Label>Tipo Clienti</Form.Label>
           <Form.Control
@@ -232,8 +203,6 @@ const ModificaCliente = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        {/* Sede Legale ID */}
         <Form.Group className="mb-3">
           <Form.Label>Sede Legale ID</Form.Label>
           <Form.Control
@@ -243,8 +212,6 @@ const ModificaCliente = () => {
             onChange={handleChangeId}
           />
         </Form.Group>
-
-        {/* Sede Operativa ID */}
         <Form.Group className="mb-3">
           <Form.Label>Sede Operativa ID</Form.Label>
           <Form.Control
