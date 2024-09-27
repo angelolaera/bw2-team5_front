@@ -16,11 +16,9 @@ const Form_Login = () => {
 
     const data = await PostAuthService("http://localhost:3001/auth/login", formLogin);
     console.log("token ", data.accessToken);
-    if (formLogin.password === "1234") {
-      setTimeout(() => {
-        navigate("/menu");
-      }, 20000);
-    }
+    setTimeout(() => {
+      navigate("/menu");
+    }, 5000);
   };
 
   const handleChange = (e) => {

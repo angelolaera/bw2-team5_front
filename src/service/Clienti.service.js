@@ -24,7 +24,7 @@ const getClient = async (url) => {
     const response = await fetch(url, {
       headers: {
         Authorization:
-          "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjczOTIyNzIsImV4cCI6MTcyNzY1MTQ3Miwic3ViIjoiMzllZWY1MGEtOWIyYy00N2I5LTg2ZDYtNzk1YTY5ZDljYzEwIn0.6fxL_mp3mce8Vn7edFIJ0ZcNstV50b3IPNg4uMfSQXdCh2sqwMgJtXvOsLujrsUyZG83JViXbM-qMUSNYbEHvw",
+          "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjc0MjQ2MTQsImV4cCI6MTcyNzY4MzgxNCwic3ViIjoiMzhjODEyZDUtZDA4NC00NGZiLThmYTAtMjgwOTFhMmMzZDZlIn0.EbyHqvn3OljZTPlJ6CplmfujcLL_VOtcyF5-XGdVzfLfVaikWg5JzLjIzMBpseZxZcn4npxVr28VvG0BEcLO1Q",
       },
     });
 
@@ -47,7 +47,7 @@ const PutClient = async (url, clienti) => {
       headers: {
         "Content-Type": "application/json",
         Authorization:
-          "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjczOTIyNzIsImV4cCI6MTcyNzY1MTQ3Miwic3ViIjoiMzllZWY1MGEtOWIyYy00N2I5LTg2ZDYtNzk1YTY5ZDljYzEwIn0.6fxL_mp3mce8Vn7edFIJ0ZcNstV50b3IPNg4uMfSQXdCh2sqwMgJtXvOsLujrsUyZG83JViXbM-qMUSNYbEHvw",
+          "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjc0MjQ2MTQsImV4cCI6MTcyNzY4MzgxNCwic3ViIjoiMzhjODEyZDUtZDA4NC00NGZiLThmYTAtMjgwOTFhMmMzZDZlIn0.EbyHqvn3OljZTPlJ6CplmfujcLL_VOtcyF5-XGdVzfLfVaikWg5JzLjIzMBpseZxZcn4npxVr28VvG0BEcLO1Q",
       },
     });
 

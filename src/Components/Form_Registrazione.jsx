@@ -135,7 +135,7 @@ const Form_Registrazione = () => {
           <Form.Label>Fatturato annuale</Form.Label>
           <Form.Control
             type="text"
-            name="dataUltimoContatto"
+            name="fatturatoAnnuale"
             value={formRegister.fatturatoAnnuale}
             onChange={handleChange}
             required
